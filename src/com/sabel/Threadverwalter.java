@@ -26,7 +26,6 @@ public class Threadverwalter implements Runnable {
 
     public void stopThread() {
         if (this.thread != null) {
-            System.out.println("Der Thread wurde gestoppt");
             thread.interrupt();
         } // END IF
         this.thread = null;
@@ -42,6 +41,7 @@ public class Threadverwalter implements Runnable {
                 break;
             } // END TRY-CATCH
         } // END WHILE
+        System.out.println("Der Thread wurde gestoppt");
     } // END Override
 
 
@@ -64,7 +64,8 @@ public class Threadverwalter implements Runnable {
                     case "q":
                         threadverwalter.stopThread();
                         System.out.println("Programm wird beendet");
-                        System.exit(0);
+                        //System.exit(0);
+                        return;
                 } // END SWITCH
             } catch (IOException e) {
                 e.printStackTrace();
